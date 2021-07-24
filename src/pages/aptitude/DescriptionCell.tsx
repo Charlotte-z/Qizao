@@ -11,8 +11,7 @@ const DescriptionCell: React.FC<DescriptionCellProps> = (
   const { des1, des2 } = props;
   return (
     <div
-      className="flex flex-col items-center"
-      style={{ width: 66, margin: 3 }}
+      className="flex flex-col w-6 items-center mx-1"
     >
       <span style={{ fontSize: 5 }} className="flex flex-wrap text-gray-500">
         {des1}
