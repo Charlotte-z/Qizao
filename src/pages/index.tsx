@@ -1,6 +1,7 @@
 import React from 'react';
 import { Badge, Icon, Tabs } from 'antd-mobile';
 import IconTest from '../assets/images/homeSelected.png';
+import buyIcon from '../assets/images/buy_active.png';
 import './index.css';
 import { useHistory } from 'react-router';
 import Aptitude from './aptitude';
@@ -17,8 +18,8 @@ const tabs = [
   {
     title: (
       <div className="h-full flex flex-col items-center">
-        <img src={IconTest} className="h-3 w-3" alt="" />
-        <span>首页</span>
+        <img src={buyIcon} className="h-3 w-3" alt="" />
+        <span>买资质</span>
       </div>
     ),
   },

@@ -84,11 +84,11 @@ const Aptitude: React.FC = () => {
         <p className="text-gray-500 mb-2">重要的事情，交给我们就是放心</p>
       </div>
 
-      <div className="flex flex-col w-full justify-center px-1">
+      <div className="flex flex-col w-full justify-center items-center px-1">
         <div className="flex flex-around">
           {serverTitleSteps.map((title) => (
             <div
-              className="rounded-full border-4 border-blue-500 flex justify-center items-center"
+              className="rounded-full border-4 border-blue-500 flex flex-around items-center"
               style={{ width: 66, height: 66, margin: 1 }}
             >
               {title}
