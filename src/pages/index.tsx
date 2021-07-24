@@ -3,6 +3,7 @@ import { Badge, Icon, Tabs } from 'antd-mobile';
 import IconTest from '../assets/images/homeSelected.png';
 import './index.css';
 import { useHistory } from 'react-router';
+import Aptitude from './aptitude';
 
 const tabs = [
   {
@@ -46,17 +47,7 @@ const TabBar = () => {
         >
           Content of first tab
         </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
-            backgroundColor: '#fff',
-          }}
-        >
-          Content of second tab
-        </div>
+        <Aptitude />
         <div
           style={{
             display: 'flex',
