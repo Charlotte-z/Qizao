@@ -1,0 +1,25 @@
+.wrapper {
+  height: 204px;
+  background-color: #433bc9;
+}
+
+.wrapper .am-list-line {
+  border: none;
+}
+
+.input {
+  width: 286px;
+  background-color: #5a62dc;
+  border: none;
+  outline: hidden;
+}
+
+.profile {
+  height: 26px;
+  width: 24px;
+}
+
+.image {
+  height: 136px;
+  width: 354px;
+}

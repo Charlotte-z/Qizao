@@ -1,0 +1,40 @@
+.scrollItem {
+  width: 70px;
+  height: 70px;
+}
+
+.inputItem {
+  width: 270px;
+  height: 34px;
+  background-color: #f1f1f1;
+  border: none;
+  outline: hidden;
+}
+
+.sz .am-list-item {
+  min-height: 0px !important;
+}
+
+.sz .am-list-item.am-input-item {
+  height: 34px;
+}
+
+.sz .am-list-item .am-input-control input {
+  font-size: 14px;
+}
+
+.search {
+  width: 89px;
+  height: 34px;
+  background-color: #5373e6;
+  color: white;
+}
+
+.hot .am-tabs-default-bar-content {
+  width: 200px;
+  height: 45px;
+}
+
+.hot .am-tabs-default-bar-underline {
+  display: none;
+}

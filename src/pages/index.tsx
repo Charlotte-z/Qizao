@@ -3,6 +3,7 @@ import { Badge, Icon, Tabs } from 'antd-mobile';
 import IconTest from '../assets/images/homeSelected.png';
 import './index.css';
 import { useHistory } from 'react-router';
+import Home from './home/components';
 
 const tabs = [
   {
@@ -34,17 +35,21 @@ const TabBar = () => {
   const history = useHistory();
   return (
     <div className="h-screen">
-      <Tabs tabs={tabs} tabBarPosition="bottom" initialPage={1}>
+      <Tabs
+        tabs={tabs}
+        swipeable={false}
+        tabBarPosition="bottom"
+        initialPage={0}
+        animated={false}
+      >
         <div
           style={{
             display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            height: '100%',
+            width: '100vw',
             backgroundColor: '#fff',
           }}
         >
-          Content of first tab
+          <Home />
         </div>
         <div
           style={{
