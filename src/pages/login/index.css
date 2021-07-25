@@ -1,0 +1,27 @@
+.bgc {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(#7eb2fe, #738dea);
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+}
+
+.button {
+  width: 209px;
+  background-color: #7eb2fe;
+  margin: auto;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-radio .am-radio {
+  padding: 2.5px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin-right: 5px;
+}
