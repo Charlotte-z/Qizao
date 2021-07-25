@@ -91,7 +91,6 @@ const Login: React.FC = () => {
                   {
                     name: '',
                     phone: phone.replace(/\s*/g, ''),
-                    message_type: 1,
                   },
                 )
                 .then((res) => {
