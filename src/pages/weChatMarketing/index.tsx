@@ -199,25 +199,25 @@ const WeChatMarketing: React.FC = () => {
           <div>
             <div className="title text-center mb-1">微信营销一站式服务</div>
             <Flex>
-              <div className=" bg-gray-200 p-1 rounded-sm flex-1 mr-1 h-8">
+              <div className=" bg-gray-200 p-1 rounded-sm flex-1 mr-1 h-9">
                 <b className="text-blue-600">目标用户数据分析</b>
                 <p className="mt-1 text-gray-500">
                   企枣网对公众号设置多达 500个标签
                 </p>
               </div>
-              <div className=" bg-gray-200 p-1 rounded-sm flex-1 h-8">
+              <div className=" bg-gray-200 p-1 rounded-sm flex-1 h-9">
                 <b className="text-blue-600">大数据匹配账号</b>
                 <p className="mt-1 text-gray-500">根据目标用户分析</p>
               </div>
             </Flex>
             <Flex className="mt-1">
-              <div className=" bg-gray-200 p-1 rounded-sm flex-1 mr-1 h-8">
+              <div className=" bg-gray-200 p-1 rounded-sm flex-1 mr-1 h-9">
                 <b className="text-blue-600">文案优化服务</b>
                 <p className="mt-1 text-gray-500">
                   根据产品特点提供合理的优 化方案
                 </p>
               </div>
-              <div className=" bg-gray-200 p-1 rounded-sm flex-1 h-8">
+              <div className=" bg-gray-200 p-1 rounded-sm flex-1 h-9">
                 <b className="text-blue-600">售后保障</b>
                 <p className="mt-1 text-gray-500">优质服务 一对一免费咨询</p>
               </div>

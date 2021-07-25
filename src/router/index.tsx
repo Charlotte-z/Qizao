@@ -7,9 +7,9 @@ const Router = () => {
   return (
     <Switch>
       <Route exact path="/login" component={Login} />
-      <Route exact path="/TabBar" component={TabBar} />
+      <Route exact path="/" component={TabBar} />
       <Route exact path="/kk" component={() => <div>awdwad</div>} />
-      <Redirect to="/login" />
+      <Redirect to="/" />
     </Switch>
   );
 };

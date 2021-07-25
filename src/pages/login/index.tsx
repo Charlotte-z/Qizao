@@ -9,7 +9,7 @@ import {
   Toast,
   WhiteSpace,
 } from 'antd-mobile';
-import React, { RefObject, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './index.css';
 import QRcode from '../../assets/images/QRcode.png';
 import { useHistory } from 'react-router';
@@ -49,7 +49,9 @@ const Login: React.FC = () => {
     <div className="bgc">
       <NavBar
         mode="light"
-        icon={<Icon type="left" color="#fff" />}
+        icon={
+          <Icon type="left" color="#fff" onClick={() => history.goBack()} />
+        }
         style={{ background: 'none' }}
         onLeftClick={() => console.log('onLeftClick')}
       >
