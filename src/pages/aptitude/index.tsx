@@ -56,8 +56,8 @@ const Aptitude: React.FC = () => {
           </Flex.Item>
         </Flex>
         <WhiteSpace size="lg" />
-        {MockAptitudes.map((item) => (
-          <AptitudeCard aptitude={item} />
+        {MockAptitudes.map((item, index) => (
+          <AptitudeCard key={index} aptitude={item} />
         ))}
 
         <div className="flex flex-col mt-3 w-full justify-center items-center">
@@ -94,8 +94,9 @@ const Aptitude: React.FC = () => {
 
         <div className="flex flex-col w-full justify-center items-center px-1">
           <div className="flex flex-around px-2">
-            {serverTitleSteps.map((title) => (
+            {serverTitleSteps.map((title, index) => (
               <div
+                key={index}
                 className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
                 style={{ fontSize: 12 }}
               >
@@ -105,7 +106,7 @@ const Aptitude: React.FC = () => {
           </div>
           <div className="flex flex-around">
             {serverDesSteps.map(({ des1, des2 }) => (
-              <DescriptionCell des1={des1} des2={des2} />
+              <DescriptionCell key={des2} des1={des1} des2={des2} />
             ))}
           </div>
         </div>

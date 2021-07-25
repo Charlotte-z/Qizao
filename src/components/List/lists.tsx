@@ -16,8 +16,8 @@ interface Porps {
 const Lists: React.FC<Porps> = ({ list }) => {
   return (
     <div>
-      {list.map((l) => (
-        <>
+      {list.map((l, index) => (
+        <div key={index}>
           <div className={`font-14 ${l.titleClassName}`}>{l.title}</div>
           <WhiteSpace />
           <div className={`font-12 ${l.contentClassName}`}>
@@ -29,7 +29,7 @@ const Lists: React.FC<Porps> = ({ list }) => {
               <div className={`ml-1 ${l.rightClassName}`}>{l.right}</div>
             )}
           </div>
-        </>
+        </div>
       ))}
     </div>
   );

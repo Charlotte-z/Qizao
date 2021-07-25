@@ -125,8 +125,8 @@ const Content = () => {
   const type = useRef<any>();
   const IconList = () => (
     <div className="flex justify-evenly">
-      {scrollItems.map((scrollItem) => (
-        <div className="flex flex-col justify-center items-center">
+      {scrollItems.map((scrollItem, index) => (
+        <div key={index} className="flex flex-col justify-center items-center">
           <img className="scrollItem" src={scrollItem.img} alt="" />
           <span>{scrollItem.title}</span>
         </div>
@@ -199,9 +199,10 @@ const Content = () => {
   const CompanyDetailItems = () => {
     return (
       <div className="flex overflow-auto ">
-        {companyDetail.map((detail) => {
+        {companyDetail.map((detail, index) => {
           return (
             <div
+              key={index}
               style={{ border: '1px solid #EDEDED' }}
               className="mt-1 mb-1 ml-1"
             >
@@ -351,9 +352,9 @@ const Content = () => {
               backgroundColor: '#fff',
             }}
           >
-            {Hots.map((h) => {
+            {Hots.map((h, index) => {
               return (
-                <div className="h-10 w-10 flex w-full p-1 mt-2">
+                <div key={index} className="h-10 w-10 flex w-full p-1 mt-2">
                   <div
                     className="h-10 w-10 rounded flex justify-center items-center"
                     style={{ background: '#EFF5FF' }}

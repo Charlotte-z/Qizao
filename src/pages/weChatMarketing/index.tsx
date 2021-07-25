@@ -71,103 +71,106 @@ const WeChatMarketing: React.FC = () => {
           <hr></hr>
         </Flex>
         <WingBlank>
-          <Carousel className="recommend py-2" autoplay={false} infinite>
-            <Flex direction="column">
-              <Flex direction="column" align="center">
-                <b className="font-16 text-white ">微信公众号推荐</b>
-                <div className="text-gray-300 font-12 font-bold my-1">
-                  海量资源，精准投放，提高命中，助企业完成
-                </div>
-              </Flex>
+          <div className="recommend py-2 h-32">
+            <Carousel autoplay={false} infinite>
+              <Flex direction="column">
+                <Flex direction="column" align="center">
+                  <b className="font-16 text-white ">微信公众号推荐</b>
+                  <div className="text-gray-300 font-12 font-bold my-1">
+                    海量资源，精准投放，提高命中，助企业完成
+                  </div>
+                </Flex>
 
-              <Flex justify="around" className="w-full">
-                <Card className="recommendCard">
-                  <WingBlank>
-                    <WhiteSpace />
-                    <Flex>
-                      <img src={weChat} width="18px" height="18px" />
-                      <b className="ml-1">微信公众号</b>
-                    </Flex>
-                    <WhiteSpace />
-                    <b>17年注册企业服务号，粉丝2.4W+视</b>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <b className="text-yellow-600">¥2.50万</b>
-                      <b className="tag">情感生活</b>
-                    </Flex>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <ListItem
-                        title="服务号"
-                        content="公众号类型"
-                        contentClassName="contentText"
-                      />
-                      <ListItem
-                        title="2.60W+"
-                        content="粉丝数"
-                        contentClassName="contentText"
-                      />
-                    </Flex>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <ListItem
-                        title="均衡"
-                        content="粉丝数"
-                        contentClassName="contentText"
-                      />
-                      <ListItem
-                        title="2.60W+"
-                        content="播放量"
-                        contentClassName="contentText"
-                      />
-                    </Flex>
-                  </WingBlank>
-                </Card>
-                <Card className="recommendCard">
-                  <WingBlank>
-                    <WhiteSpace />
-                    <Flex>
-                      <img src={weChat} width="18px" height="18px" />
-                      <b className="ml-1">微信公众号</b>
-                    </Flex>
-                    <WhiteSpace />
-                    <b>17年注册企业服务号，粉丝2.4W+视</b>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <b className="text-yellow-600">¥2.50万</b>
-                      <b className="tag">情感生活</b>
-                    </Flex>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <ListItem
-                        title="服务号"
-                        content="公众号类型"
-                        contentClassName="contentText"
-                      />
-                      <ListItem
-                        title="2.60W+"
-                        content="粉丝数"
-                        contentClassName="contentText"
-                      />
-                    </Flex>
-                    <WhiteSpace />
-                    <Flex justify="between">
-                      <ListItem
-                        title="均衡"
-                        content="粉丝数"
-                        contentClassName="contentText"
-                      />
-                      <ListItem
-                        title="2.60W+"
-                        content="播放量"
-                        contentClassName="contentText"
-                      />
-                    </Flex>
-                  </WingBlank>
-                </Card>
+                <Flex justify="around" className="w-full">
+                  <Card className="recommendCard">
+                    <WingBlank>
+                      <WhiteSpace />
+                      <Flex>
+                        <img src={weChat} width="18px" height="18px" />
+                        <b className="ml-1">微信公众号</b>
+                      </Flex>
+                      <WhiteSpace />
+                      <b>17年注册企业服务号，粉丝2.4W+视</b>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <b className="text-yellow-600">¥2.50万</b>
+                        <b className="tag">情感生活</b>
+                      </Flex>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <ListItem
+                          title="服务号"
+                          content="公众号类型"
+                          contentClassName="contentText"
+                        />
+                        <ListItem
+                          title="2.60W+"
+                          content="粉丝数"
+                          contentClassName="contentText"
+                        />
+                      </Flex>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <ListItem
+                          title="均衡"
+                          content="粉丝数"
+                          contentClassName="contentText"
+                        />
+                        <ListItem
+                          title="2.60W+"
+                          content="播放量"
+                          contentClassName="contentText"
+                        />
+                      </Flex>
+                    </WingBlank>
+                  </Card>
+                  <Card className="recommendCard">
+                    <WingBlank>
+                      <WhiteSpace />
+                      <Flex>
+                        <img src={weChat} width="18px" height="18px" />
+                        <b className="ml-1">微信公众号</b>
+                      </Flex>
+                      <WhiteSpace />
+                      <b>17年注册企业服务号，粉丝2.4W+视</b>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <b className="text-yellow-600">¥2.50万</b>
+                        <b className="tag">情感生活</b>
+                      </Flex>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <ListItem
+                          title="服务号"
+                          content="公众号类型"
+                          contentClassName="contentText"
+                        />
+                        <ListItem
+                          title="2.60W+"
+                          content="粉丝数"
+                          contentClassName="contentText"
+                        />
+                      </Flex>
+                      <WhiteSpace />
+                      <Flex justify="between">
+                        <ListItem
+                          title="均衡"
+                          content="粉丝数"
+                          contentClassName="contentText"
+                        />
+                        <ListItem
+                          title="2.60W+"
+                          content="播放量"
+                          contentClassName="contentText"
+                        />
+                      </Flex>
+                    </WingBlank>
+                  </Card>
+                </Flex>
               </Flex>
-            </Flex>
-          </Carousel>
+            </Carousel>
+          </div>
+
           <div className="my-3">
             <div className="title text-center mb-3">投放效果实时监控优化</div>
             <Flex justify="between">
