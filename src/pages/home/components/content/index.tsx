@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './index.css';
 import CompanyIcon from '../../../../assets/images/企业公司@2x.png';
 import ServiceIcon from '../../../../assets/images/证书资质@2x.png';
@@ -15,6 +15,8 @@ import PhoneIcon from '../../../../assets/images/电话 2@2x.png';
 import { InputItem, SearchBar, TabBar, Tabs } from 'antd-mobile';
 import Input from 'antd-mobile/lib/input-item/Input';
 import CompanyItem from '../../../../components/CompanyItem';
+import { useRequest } from 'ahooks';
+import axios from 'axios';
 
 const companyFakeIcon = () => {
   return (
@@ -72,6 +74,8 @@ const companyDetail: Array<{
 ];
 
 const Content = () => {
+  const phoneNumber = useRef<string>('');
+  const type = useRef<any>();
   const IconList = () => (
     <div className="flex justify-evenly">
       {scrollItems.map((scrollItem) => (
@@ -90,12 +94,12 @@ const Content = () => {
           <h1 style={{ fontSize: 20 }}>全国范围免费找资质/公司</h1>
         </div>
         <div className="flex justify-center mt-1">
-          <div>
+          <div onClick={() => (type.current = 1)}>
             <input type="radio" id="huey" name="drone" value="huey" />
             <label>找公司</label>
           </div>
 
-          <div>
+          <div onClick={() => (type.current = 2)}>
             <input
               type="radio"
               id="huey"
@@ -108,11 +112,27 @@ const Content = () => {
         </div>
 
         <div className="searWrapper flex justify-center mt-2">
-          <InputItem
+          <Input
             className="inputItem"
             placeholder="填写您的电话号，我们立即联系您！"
+            onChange={(value: any) => {
+              phoneNumber.current = value.target.value;
+            }}
           />
-          <div className="search flex justify-center items-center">
+          <div
+            className="search flex justify-center items-center"
+            onClick={() => {
+              axios({
+                method: 'post',
+                url: 'https://api.7zaowang.com/index.php/api/telephoneMessage',
+                data: {
+                  name: '',
+                  phone: phoneNumber.current,
+                  message_type: type.current,
+                },
+              });
+            }}
+          >
             <span>立即查找</span>
           </div>
         </div>
