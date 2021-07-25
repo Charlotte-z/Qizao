@@ -1,0 +1,10 @@
+.tel-tag {
+  padding: 4px;
+  border: 1px solid #4b82df;
+  border-radius: 20px;
+}
+
+.desc {
+  color: #9d9d9d;
+  font-size: 10px;
+}

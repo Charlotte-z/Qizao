@@ -36,26 +36,30 @@ const Aptitude: React.FC = () => {
     <div className="overflow-x-hidden">
       <NavBar
         style={{ backgroundColor: '#4868DC' }}
+        className="fixed w-full z-20"
         mode="light"
         icon={<Icon type="left" color="#fff" />}
         onLeftClick={() => console.log('onLeftClick')}
+        height="40px"
       >
         <span style={{ color: '#fff' }}>资质服务</span>
       </NavBar>
-      <img src={aptitudeSrc} alt="aptitude.png" className="w-full" />
-      <SearchSection />
-      <Flex justify="center" direction="column">
-        <Flex.Item className="mt-2" style={{ fontSize: 18 }}>
-          特价资讯
-        </Flex.Item>
-        <Flex.Item className="text-gray-500 mt-1">
-          全国海量资源，任你挑选
-        </Flex.Item>
-      </Flex>
-      <WhiteSpace size="lg" />
-      {MockAptitudes.map((item) => (
-        <AptitudeCard aptitude={item} />
-      ))}
+      <div style={{ marginTop: '40px' }}>
+        <img src={aptitudeSrc} alt="aptitude.png" className="w-full" />
+        <SearchSection />
+        <Flex justify="center" direction="column">
+          <Flex.Item className="mt-2" style={{ fontSize: 18 }}>
+            特价资讯
+          </Flex.Item>
+          <Flex.Item className="text-gray-500 mt-1">
+            全国海量资源，任你挑选
+          </Flex.Item>
+        </Flex>
+        <WhiteSpace size="lg" />
+        {MockAptitudes.map((item, index) => (
+          <AptitudeCard key={index} aptitude={item} />
+        ))}
+      </div>
 
       <div className="flex flex-col mt-3 w-full justify-center items-center">
         <p className="mb-1" style={{ fontSize: 18 }}>
@@ -82,41 +86,44 @@ const Aptitude: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex flex-col mt-3 w-full justify-center items-center">
-        <p className="mb-1" style={{ fontSize: 18 }}>
-          服务保障
-        </p>
-        <p className="text-gray-500 mb-2">重要的事情，交给我们就是放心</p>
-      </div>
-
       <div className="flex flex-col w-full justify-center items-center px-1">
-        <div className="flex flex-around px-2">
-          {serverTitleSteps.map((title) => (
-            <div
-              className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center flex-nowrap"
-              style={{ fontSize: 12 }}
-            >
-              {title}
-            </div>
-          ))}
+        <div className="flex flex-col mt-3 w-full justify-center items-center">
+          <p className="mb-1" style={{ fontSize: 18 }}>
+            服务保障
+          </p>
+          <p className="text-gray-500 mb-2">重要的事情，交给我们就是放心</p>
         </div>
-        <div className="flex flex-around">
-          {serverDesSteps.map(({ des1, des2 }) => (
-            <DescriptionCell des1={des1} des2={des2} />
-          ))}
-        </div>
-      </div>
 
-      <div className="flex justify-center items-center my-2">
-        <div
-          className="bg-gray-200 flex p-1 items-center"
-          style={{ height: 30 }}
-        >
-          财富热线：17381565284
+        <div className="flex flex-col w-full justify-center items-center px-1">
+          <div className="flex flex-around px-2">
+            {serverTitleSteps.map((title, index) => (
+              <div
+                key={index}
+                className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
+                style={{ fontSize: 12 }}
+              >
+                {title}
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-around">
+            {serverDesSteps.map(({ des1, des2 }) => (
+              <DescriptionCell key={des2} des1={des1} des2={des2} />
+            ))}
+          </div>
         </div>
-        <Button size="small" type="primary">
-          <a href={advisoryURL}>立即咨询</a>
-        </Button>
+
+        <div className="flex justify-center items-center my-2">
+          <div
+            className="bg-gray-200 flex p-1 items-center"
+            style={{ height: 30 }}
+          >
+            财富热线：17381565284
+          </div>
+          <Button size="small" type="primary">
+            <a href={advisoryURL}>立即咨询</a>
+          </Button>
+        </div>
       </div>
     </div>
   );

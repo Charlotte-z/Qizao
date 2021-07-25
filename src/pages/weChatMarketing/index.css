@@ -1,0 +1,27 @@
+.button-query {
+  background-color: #5373e6;
+  color: #fff;
+  font-size: 14px;
+  width: 89px;
+}
+
+.recommend {
+  background-image: linear-gradient(#8758f6, #52bdf5);
+}
+
+.recommendCard {
+  width: 155px;
+  height: 212px;
+}
+
+.tag {
+  padding: 2px;
+  background-image: linear-gradient(#fa2736, #ff9448);
+  border-radius: 6px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.contentText {
+  color: #9f9f9f;
+}
