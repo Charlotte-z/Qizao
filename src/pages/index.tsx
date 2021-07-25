@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badge, Icon, Tabs } from 'antd-mobile';
+import { Tabs } from 'antd-mobile';
 import IconTest from '../assets/images/homeSelected.png';
 import buyIcon from '../assets/images/buy_active.png';
 import './index.css';

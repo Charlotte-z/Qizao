@@ -12,8 +12,7 @@ import MakeSureIcon from '../../../../assets/images/保障@2x.png';
 import QueryIcon from '../../../../assets/images/流转查询@2x.png';
 import PhoneIcon from '../../../../assets/images/电话 2@2x.png';
 
-import { InputItem, SearchBar, TabBar, Tabs } from 'antd-mobile';
-import Input from 'antd-mobile/lib/input-item/Input';
+import { InputItem, Tabs } from 'antd-mobile';
 import CompanyItem from '../../../../components/CompanyItem';
 
 const companyFakeIcon = () => {
@@ -24,6 +23,53 @@ const companyFakeIcon = () => {
     >
       <div className="text-xs" style={{ color: '#4B82DF' }}>
         琼
+      </div>
+    </div>
+  );
+};
+
+export const SearchSection = () => {
+  return (
+    <div className="sz">
+      <div className="flex justify-center mt-2">
+        <h1 style={{ fontSize: 18 }}>全国范围免费找资质/公司</h1>
+      </div>
+      <div className="flex justify-center mt-1">
+        <div>
+          <input
+            type="radio"
+            id="normal"
+            name="drone"
+            value="huey"
+            className="mr-1"
+          />
+          <label htmlFor="normal">找公司</label>
+        </div>
+
+        <div>
+          <input
+            type="radio"
+            id="huey"
+            name="drone"
+            value="huey"
+            className="mx-1"
+          />
+          <label htmlFor="huey">找带资质的公司</label>
+        </div>
+      </div>
+
+      <div className="searWrapper flex justify-center mt-2">
+        <InputItem
+          className="inputItem"
+          placeholder="填写您的电话号，我们立即联系您！"
+        />
+        <div className="search flex justify-center items-center">
+          <span>立即查找</span>
+        </div>
+      </div>
+
+      <div className="flex justify-center mt-2">
+        <span>60分钟 187****4766 发布了北京****金融有限公司</span>
       </div>
     </div>
   );
@@ -82,47 +128,6 @@ const Content = () => {
       ))}
     </div>
   );
-
-  const SearchSection = () => {
-    return (
-      <div className="sz">
-        <div className="flex justify-center mt-2">
-          <h1 style={{ fontSize: 20 }}>全国范围免费找资质/公司</h1>
-        </div>
-        <div className="flex justify-center mt-1">
-          <div>
-            <input type="radio" id="huey" name="drone" value="huey" />
-            <label>找公司</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              id="huey"
-              name="drone"
-              value="huey"
-              className="ml-4"
-            />
-            <label>找带资质的公司</label>
-          </div>
-        </div>
-
-        <div className="searWrapper flex justify-center mt-2">
-          <InputItem
-            className="inputItem"
-            placeholder="填写您的电话号，我们立即联系您！"
-          />
-          <div className="search flex justify-center items-center">
-            <span>立即查找</span>
-          </div>
-        </div>
-
-        <div className="flex justify-center mt-2">
-          <span>60分钟 187****4766 发布了北京****金融有限公司</span>
-        </div>
-      </div>
-    );
-  };
 
   const CompanyDetailItems = () => {
     return (
