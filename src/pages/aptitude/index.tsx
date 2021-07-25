@@ -99,7 +99,7 @@ const Aptitude: React.FC = () => {
             {serverTitleSteps.map((title, index) => (
               <div
                 key={index}
-                className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
+                className="rounded-full border-2 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
                 style={{ fontSize: 12 }}
               >
                 {title}
