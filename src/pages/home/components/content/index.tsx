@@ -140,13 +140,13 @@ const Content = () => {
         <div className="flex justify-center mt-2">
           <h1 style={{ fontSize: 20 }}>全国范围免费找资质/公司</h1>
         </div>
-        <div className="flex justify-center mt-1">
-          <div onClick={() => (type.current = 1)}>
+        <div className="flex justify-center mt-1 ">
+          <div onClick={() => (type.current = 1)} className="flex items-center">
             <input type="radio" id="huey" name="drone" value="huey" />
             <label>找公司</label>
           </div>
 
-          <div onClick={() => (type.current = 2)}>
+          <div onClick={() => (type.current = 2)} className="flex items-center">
             <input
               type="radio"
               id="huey"
@@ -198,28 +198,28 @@ const Content = () => {
 
   const CompanyDetailItems = () => {
     return (
-      <div className="flex overflow-auto ">
+      <div className="flex overflow-auto pt-2">
         {companyDetail.map((detail, index) => {
           return (
             <div
               key={index}
               style={{ border: '1px solid #EDEDED' }}
-              className="mt-1 mb-1 ml-1"
+              className="py2  ml-1"
             >
-              <div className="h-6 inline-flex">
+              <div className="h-7 inline-flex">
                 {/* <img src={detail.Icon} alt="" /> */}
                 {detail.Icon()}
                 <div className="flex flex-col justify-around ml-1">
-                  <div className="flex">
+                  <div className="flex w-16">
                     <div style={{ flex: 0.8 }}>
-                      <span style={{ color: '#BE3E49', fontSize: 12 }}>
+                      <span style={{ color: '#BE3E49', fontSize: 14 }}>
                         ¥<span style={{ fontSize: 18 }}>{detail.price}</span>
                       </span>
                     </div>
                     <div style={{ flex: 0.2 }}>
                       <div
                         style={{ background: '#DF3A26' }}
-                        className="h-2 w-6 flex justify-center items-center"
+                        className="h-2 w-8 flex justify-center items-center"
                       >
                         <div style={{ color: 'white', fontSize: 8 }}>
                           立即查看
@@ -354,7 +354,7 @@ const Content = () => {
           >
             {Hots.map((h, index) => {
               return (
-                <div key={index} className="h-10 w-10 flex w-full p-1 mt-2">
+                <div key={index} className="h-10  flex w-full p-1 mt-2">
                   <div
                     className="h-10 w-10 rounded flex justify-center items-center"
                     style={{ background: '#EFF5FF' }}
