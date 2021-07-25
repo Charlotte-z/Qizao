@@ -36,7 +36,7 @@ const Login: React.FC = () => {
             <b className="leading-5 font-24">微信：</b>
             <img src={QRcode} alt="" height="187px" width="187px" />
           </Flex>
-          <Button className="button" onClick={() => history.push('/TabBar')}>
+          <Button className="button" onClick={() => history.push('/')}>
             好的
           </Button>
           <WhiteSpace />
