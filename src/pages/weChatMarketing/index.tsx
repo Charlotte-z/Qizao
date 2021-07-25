@@ -29,12 +29,13 @@ const WeChatMarketing: React.FC = () => {
       <NavBar
         mode="light"
         icon={<Icon type="left" color="#fff" />}
-        style={{ background: '#4868DC' }}
+        style={{ background: '#4868DC', marginBottom: '40px' }}
         className="fixed w-full z-20"
         height="40px"
       >
         <span className="text-white">微信营销</span>
       </NavBar>
+
       <div style={{ paddingTop: '40px' }}>
         <img src={cover} height="178px" />
         <Flex justify="around" direction="column" className="h-20">
@@ -64,7 +65,7 @@ const WeChatMarketing: React.FC = () => {
               placeholder="填写您的电话号，我们立即联系您！"
               className="bg-gray-50"
             />
-            <Button className="button w-10">立即查找</Button>
+            <Button className="button-query">立即查找</Button>
           </Flex>
           <div>60分钟 187****4766 发布了</div>
           <hr></hr>

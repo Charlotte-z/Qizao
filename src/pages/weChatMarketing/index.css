@@ -1,7 +1,8 @@
-.button {
+.button-query {
   background-color: #5373e6;
   color: #fff;
   font-size: 14px;
+  width: 89px;
 }
 
 .recommend {
