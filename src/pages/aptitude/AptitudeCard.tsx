@@ -11,6 +11,9 @@ interface AptitudeProps {
   };
 }
 
+export const advisoryURL =
+  'https://kht.zoosnet.net/LR/Chatpre.aspx?id=KHT49896761&cid=3259dc2ac0704c57b18cc1631640678c&lng=cn&sid=62a3bb6ee9584a12ae89641c4a2ce8fb&p=http%3A//7.7zaowang.com/%23/&rf1=&rf2=&msg=&d=1627212516455';
+
 const AptitudeCard: React.FC<AptitudeProps> = (props) => {
   const { aptitude } = props;
   const { projectName, projectMony, registererAsset, method, expireDate } =
@@ -39,7 +42,7 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
         </ul>
         <div className="mt-2">
           <Button size="small" type="primary">
-            立即咨询
+            <a href={advisoryURL}>立即咨询</a>
           </Button>
         </div>
       </div>

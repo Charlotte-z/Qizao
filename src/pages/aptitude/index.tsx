@@ -3,7 +3,7 @@ import React from 'react';
 import aptitudeSrc from '../../assets/images/aptitude.png';
 import transferStepSrc from '../../assets/images/transferSteps.png';
 import { SearchSection } from '../home/components/content';
-import AptitudeCard from './AptitudeCard';
+import AptitudeCard, { advisoryURL } from './AptitudeCard';
 import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
 
@@ -59,32 +59,34 @@ const Aptitude: React.FC = () => {
         {MockAptitudes.map((item, index) => (
           <AptitudeCard key={index} aptitude={item} />
         ))}
+      </div>
 
-        <div className="flex flex-col mt-3 w-full justify-center items-center">
-          <p className="mb-1" style={{ fontSize: 18 }}>
-            转让咨询
-          </p>
-          <p className="mb-1" style={{ fontSize: 18 }}>
-            高效快速6步轻松搞定
-          </p>
-          <p className="text-gray-500 mb-2">通过率高，速度快</p>
+      <div className="flex flex-col mt-3 w-full justify-center items-center">
+        <p className="mb-1" style={{ fontSize: 18 }}>
+          转让咨询
+        </p>
+        <p className="mb-1" style={{ fontSize: 18 }}>
+          高效快速6步轻松搞定
+        </p>
+        <p className="text-gray-500 mb-2">通过率高，速度快</p>
+      </div>
+
+      <div className="flex flex-col items-center justify-center">
+        <img src={transferStepSrc} alt="transferStepSrc.png" />
+        <div className="flex justify-around">
+          {transferSteps.map((title) => (
+            <div
+              key={title}
+              className="text-gray-500 mt-1"
+              style={{ fontSize: 10, marginRight: 4 }}
+            >
+              {title}
+            </div>
+          ))}
         </div>
+      </div>
 
-        <div className="flex flex-col items-center justify-center">
-          <img src={transferStepSrc} alt="transferStepSrc.png" />
-          <div className="flex justify-around">
-            {transferSteps.map((title) => (
-              <div
-                key={title}
-                className="text-gray-500 mt-1"
-                style={{ fontSize: 10, marginRight: 4 }}
-              >
-                {title}
-              </div>
-            ))}
-          </div>
-        </div>
-
+      <div className="flex flex-col w-full justify-center items-center px-1">
         <div className="flex flex-col mt-3 w-full justify-center items-center">
           <p className="mb-1" style={{ fontSize: 18 }}>
             服务保障
@@ -97,7 +99,7 @@ const Aptitude: React.FC = () => {
             {serverTitleSteps.map((title, index) => (
               <div
                 key={index}
-                className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
+                className="rounded-full border-2 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
                 style={{ fontSize: 12 }}
               >
                 {title}
@@ -119,7 +121,7 @@ const Aptitude: React.FC = () => {
             财富热线：17381565284
           </div>
           <Button size="small" type="primary">
-            立即咨询
+            <a href={advisoryURL}>立即咨询</a>
           </Button>
         </div>
       </div>
