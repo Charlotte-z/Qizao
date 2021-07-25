@@ -3,7 +3,7 @@ import React from 'react';
 import aptitudeSrc from '../../assets/images/aptitude.png';
 import transferStepSrc from '../../assets/images/transferSteps.png';
 import { SearchSection } from '../home/components/content';
-import AptitudeCard from './AptitudeCard';
+import AptitudeCard, { advisoryURL } from './AptitudeCard';
 import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
 
@@ -93,7 +93,7 @@ const Aptitude: React.FC = () => {
         <div className="flex flex-around px-2">
           {serverTitleSteps.map((title) => (
             <div
-              className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center"
+              className="rounded-full border-4 border-blue-500 w-6 h-6 m-1 flex flex-around items-center justify-center flex-nowrap"
               style={{ fontSize: 12 }}
             >
               {title}
@@ -115,7 +115,7 @@ const Aptitude: React.FC = () => {
           财富热线：17381565284
         </div>
         <Button size="small" type="primary">
-          立即咨询
+          <a href={advisoryURL}>立即咨询</a>
         </Button>
       </div>
     </div>
