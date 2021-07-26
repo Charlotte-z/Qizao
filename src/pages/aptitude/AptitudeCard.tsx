@@ -4,8 +4,8 @@ import React from 'react';
 interface AptitudeProps {
   aptitude: {
     projectName: string;
-    projectMony: number;
-    registererAsset: number;
+    projectMony: number | string;
+    registererAsset: number | string;
     method: string;
     expireDate: Date | string;
   };

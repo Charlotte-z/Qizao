@@ -9,25 +9,32 @@ import DescriptionCell from './DescriptionCell';
 
 const MockAptitudes = [
   {
-    projectName: '施工总承包-房建工程-贰级【整转】',
-    projectMony: 45.0,
-    registererAsset: 1000,
+    projectName: '施工劳务-施工劳务不分等级 【整转】',
+    projectMony: '6',
+    registererAsset: '1000万',
     method: '现成安许',
-    expireDate: '2025-12',
+    expireDate: '2025-11',
   },
   {
-    projectName: '施工总承包-房建工程-贰级【整转】',
-    projectMony: 45.0,
-    registererAsset: 1000,
-    method: '现成安许',
-    expireDate: '2025-12',
+    projectName: '房地产开发资质-正贰级【整转】',
+    projectMony: '37',
+    registererAsset: '1000万',
+    method: '/',
+    expireDate: '2024-8',
   },
   {
-    projectName: '施工总承包-房建工程-贰级【整转】',
-    projectMony: 45.0,
-    registererAsset: 1000,
+    projectName: '施工总承包-房建工程-叁级【整转】',
+    projectMony: ' 16',
+    registererAsset: ' 1000万',
     method: '现成安许',
-    expireDate: '2025-12',
+    expireDate: '2026-03',
+  },
+  {
+    projectName: '施工总承包-市政工程-叁级【整转】',
+    projectMony: ' 16',
+    registererAsset: ' 1000万',
+    method: '现成安许',
+    expireDate: '2026-03',
   },
 ];
 
