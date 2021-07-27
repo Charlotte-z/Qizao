@@ -4,8 +4,6 @@ import {
   Icon,
   NavBar,
   Flex,
-  InputItem,
-  Button,
   WingBlank,
   Carousel,
   Card,
@@ -22,6 +20,7 @@ import icon39 from '../../assets/images/编组 39@2x.png';
 import './index.css';
 import ListItem from '../../components/List/LIstItem';
 import CompanyProfile from '../../components/CompanyProfile';
+import PhoneBar from '../../components/PhoneBar';
 
 const WeChatMarketing: React.FC = () => {
   return (
@@ -38,39 +37,9 @@ const WeChatMarketing: React.FC = () => {
 
       <div style={{ paddingTop: '40px' }}>
         <img src={cover} height="178px" />
-        <Flex justify="around" direction="column" className="h-20">
-          <Flex
-            className="w-18"
-            justify="center"
-            align="center"
-            direction="column"
-          >
-            <h2 className="font-16">全国范围免费找资质/公司</h2>
-            <Flex justify="between" className="w-full font-12 mt-2">
-              <Flex align="center">
-                <input type="radio" value="找公司" name="company"></input>找公司
-              </Flex>
-              <Flex align="center">
-                <input
-                  type="radio"
-                  value="找带资质的公司"
-                  name="company"
-                ></input>
-                找带资质的公司
-              </Flex>
-            </Flex>
-          </Flex>
-          <Flex className="h-4">
-            <InputItem
-              placeholder="填写您的电话号，我们立即联系您！"
-              className="bg-gray-50"
-            />
-            <Button className="button-query">立即查找</Button>
-          </Flex>
-          <div>60分钟 187****4766 发布了</div>
-          <hr></hr>
-        </Flex>
-        <WingBlank>
+
+        <PhoneBar companyKey="weChatMarketing" />
+        <WingBlank className="mt-2">
           <div className="recommend py-2 h-32">
             <Carousel autoplay={false} infinite>
               <Flex direction="column">

@@ -2,7 +2,7 @@ import { Button, Flex, Icon, NavBar, WhiteSpace } from 'antd-mobile';
 import React from 'react';
 import aptitudeSrc from '../../assets/images/aptitude.png';
 import transferStepSrc from '../../assets/images/transferSteps.png';
-import { SearchSection } from '../home/components/content';
+import PhoneBar from '../../components/PhoneBar';
 import AptitudeCard, { advisoryURL } from './AptitudeCard';
 import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
@@ -53,7 +53,7 @@ const Aptitude: React.FC = () => {
       </NavBar>
       <div style={{ marginTop: '40px' }}>
         <img src={aptitudeSrc} alt="aptitude.png" className="w-full" />
-        <SearchSection />
+        <PhoneBar companyKey="Aptitude" />
         <Flex justify="center" direction="column">
           <Flex.Item className="mt-2" style={{ fontSize: 18 }}>
             特价资讯

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tabs } from 'antd-mobile';
 import IconTest from '../assets/images/homeSelected.png';
 import buyIcon from '../assets/images/buy_active.png';
@@ -43,7 +43,7 @@ const tabs = [
     ),
   },
 ];
-const TabBar = () => {
+const TabBar: React.FC = () => {
   return (
     <div className="h-full w-full fixed">
       <Tabs
@@ -52,12 +52,12 @@ const TabBar = () => {
         tabBarPosition="bottom"
         initialPage={'hoome'}
         animated={false}
-        onTabClick={(tab, index) =>
+        onTabClick={(tab, index) => {
           index === 2 &&
-          window.open(
-            'http://kht.zoosnet.net/LR/Chatpre.aspx?id=KHT49896761&lng=cn',
-          )
-        }
+            window.open(
+              'http://kht.zoosnet.net/LR/Chatpre.aspx?id=KHT49896761&lng=cn',
+            );
+        }}
       >
         <div
           style={{
@@ -69,6 +69,7 @@ const TabBar = () => {
           <Home />
         </div>
         <Aptitude />
+
         <div></div>
         <div>
           <WeChatMarketing />
