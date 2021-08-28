@@ -16,6 +16,7 @@ import { Tabs } from 'antd-mobile';
 import CompanyItem from '../../../../components/CompanyItem';
 
 import PhoneBar from '../../../../components/PhoneBar';
+import CompanyProfile from '../../../../components/CompanyProfile';
 
 const companyFakeIcon = () => {
   return (
@@ -299,104 +300,13 @@ const Content = () => {
     );
   };
 
-  const Footer = () => {
-    return (
-      <div>
-        <div>
-          <div className="flex justify-evenly mt-2">
-            <div>
-              <div className="flex items-center">
-                <img
-                  className="h-3"
-                  style={{ border: '1px dashed #9D9D9D' }}
-                  src={ProfessionIcon}
-                  alt=""
-                />
-                <div className="ml-1">2000+专业咨询师</div>
-              </div>
-
-              <div className="flex items-center mt-2">
-                <img
-                  className="h-3"
-                  style={{ border: '1px dashed #9D9D9D' }}
-                  src={FreeIcon}
-                  alt=""
-                />
-                <div className="ml-1">34省免费找公司</div>
-              </div>
-            </div>
-            <div>
-              <div className="flex items-center">
-                <img
-                  className="h-3"
-                  style={{ border: '1px dashed #9D9D9D' }}
-                  src={MakeSureIcon}
-                  alt=""
-                />
-                <div className="ml-1">3大服务保障</div>
-              </div>
-
-              <div className="flex items-center mt-2">
-                <img
-                  className="h-3"
-                  style={{ border: '1px dashed #9D9D9D' }}
-                  src={QueryIcon}
-                  alt=""
-                />
-                <div className="ml-1">1547家公司完成流转</div>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-evenly mt-4">
-            <div
-              className="flex justify-center border rounded-lg px-1 items-center"
-              style={{
-                color: '#4B82DF',
-                border: '1px solid #4B82DF',
-              }}
-            >
-              <img className="h-3" src={PhoneIcon} alt="" />
-              <div style={{ fontSize: '13px', marginLeft: '2px' }}>
-                028-8432-5628
-              </div>
-            </div>
-            <div
-              className="flex justify-center rounded-lg px-1 items-center"
-              style={{
-                color: '#4B82DF',
-                border: '1px solid #4B82DF',
-              }}
-            >
-              <img className="h-3" src={PhoneIcon} alt="" />
-              <div style={{ fontSize: '13px', marginLeft: '2px' }}>
-                173-8156-5284
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col justify-center items-center mb-4 mt-4">
-            <div className="mt-2" style={{ fontSize: 14, color: '#9D9D9D' }}>
-              Copyright©2020-2021 企枣网版权所有{' '}
-            </div>
-            <div className="mt-2" style={{ fontSize: 14, color: '#9D9D9D' }}>
-              蜀ICP备2020036560号
-            </div>
-            <div className="mt-2" style={{ fontSize: 14, color: '#9D9D9D' }}>
-              川公安备51010602001292号
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <div>
       {<IconList />}
       <PhoneBar companyKey="home" />
       {<Concentration />}
       {<Hot />}
-      {<Footer />}
+      {<CompanyProfile className="mx-2" />}
     </div>
   );
 };

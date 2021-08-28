@@ -60,7 +60,6 @@ const WeChatMarketing: React.FC = () => {
 
   useEffect(() => {
     queryRecommend();
-    if (loading) Toast.loading('');
   }, []);
 
   const recommendList = useMemo(() => {
@@ -73,6 +72,8 @@ const WeChatMarketing: React.FC = () => {
     }
     return list;
   }, [recommend]);
+
+  if (loading) Toast.loading('');
 
   return (
     <div>

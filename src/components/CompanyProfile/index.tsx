@@ -1,5 +1,5 @@
 import { Flex } from 'antd-mobile';
-import React from 'react';
+import React, { useEffect } from 'react';
 import ListItem from '../List/LIstItem';
 import icon40 from '../../assets/images/保障@2x.png';
 import icon41 from '../../assets/images/免费 (1)@2x.png';
@@ -7,10 +7,33 @@ import icon42 from '../../assets/images/专业 专业课@2x.png';
 import icon43 from '../../assets/images/流转查询@2x.png';
 import icon44 from '../../assets/images/电话 (1)@2x.png';
 import './index.css';
+import useLazyAxios from '../../hooks/useLazyAxios';
 
-const CompanyProfile: React.FC = () => {
+type CmpanyInfoType = 'webInfo' | 'companyInfo' | 'weChatImg';
+type CmpanyInfo = {
+  id: number;
+  name: string;
+  description: string;
+  phone: string;
+  qq: string;
+  email: string;
+};
+
+interface Props {
+  className?: string;
+}
+const CompanyProfile: React.FC<Props> = ({ className }) => {
+  const [queryCmpanyInfo, { data }] = useLazyAxios<
+    { type: CmpanyInfoType },
+    CmpanyInfo
+  >('getInfo', { type: 'webInfo' });
+
+  useEffect(() => {
+    queryCmpanyInfo();
+  }, []);
+
   return (
-    <div>
+    <div className={className}>
       <Flex wrap="wrap" className="mt-4">
         <Flex justify="between">
           <ListItem
@@ -40,7 +63,7 @@ const CompanyProfile: React.FC = () => {
       <Flex style={{ color: '#4B82DF' }} justify="between" className="mt-4">
         <ListItem
           left={<img src={icon44} width="28PX" height="28px" />}
-          content="028-8432-5628"
+          content={data?.phone}
           className="tel-tag "
         />
         <ListItem

@@ -25,7 +25,7 @@ const useQueryAxios = <T, D>(url: RequestUrl, body?: T, method?: Method) => {
 
   useEffect(() => {
     fetchData();
-  }, [url, body, method]);
+  }, []);
 
   return { data, error, loading };
 };

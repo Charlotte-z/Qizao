@@ -14,4 +14,4 @@ export type Limit = {
   limit: number;
 };
 
-export type RequestUrl = 'getRecommend' | 'getMediaList';
+export type RequestUrl = 'getRecommend' | 'getMediaList' | 'getInfo';
