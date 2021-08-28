@@ -7,7 +7,7 @@ import icon42 from '../../assets/images/专业 专业课@2x.png';
 import icon43 from '../../assets/images/流转查询@2x.png';
 import icon44 from '../../assets/images/电话 (1)@2x.png';
 import './index.css';
-import useLazyAxios from '../../hooks/useLazyAxios';
+import useQueryAxios from '../../hooks/useQueryAxios';
 
 type CmpanyInfoType = 'webInfo' | 'companyInfo' | 'weChatImg';
 type CmpanyInfo = {
@@ -23,14 +23,10 @@ interface Props {
   className?: string;
 }
 const CompanyProfile: React.FC<Props> = ({ className }) => {
-  const [queryCmpanyInfo, { data }] = useLazyAxios<
-    { type: CmpanyInfoType },
-    CmpanyInfo
-  >('getInfo', { type: 'webInfo' });
-
-  useEffect(() => {
-    queryCmpanyInfo();
-  }, []);
+  const { data } = useQueryAxios<{ type: CmpanyInfoType }, CmpanyInfo>(
+    'getInfo',
+    { type: 'webInfo' },
+  );
 
   return (
     <div className={className}>
