@@ -17,6 +17,7 @@ const useLazyAxios = <T, D>(
   const [data, setData] = useState<D>();
   const [error, setError] = useState('');
   const [loading, setloading] = useState(true);
+
   const fetchData = () => {
     axios[method || 'post'](url, body)
       .then((res) => {

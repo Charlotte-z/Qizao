@@ -11,12 +11,14 @@ import useQueryAxios from '../../hooks/useQueryAxios';
 
 type CmpanyInfoType = 'webInfo' | 'companyInfo' | 'weChatImg';
 type CmpanyInfo = {
-  id: number;
-  name: string;
-  description: string;
-  phone: string;
-  qq: string;
-  email: string;
+  data: {
+    id: number;
+    name: string;
+    description: string;
+    phone: string;
+    qq: string;
+    email: string;
+  };
 };
 
 interface Props {
@@ -56,10 +58,11 @@ const CompanyProfile: React.FC<Props> = ({ className }) => {
           />
         </Flex>
       </Flex>
+      {console.log(data?.data.phone)}
       <Flex style={{ color: '#4B82DF' }} justify="between" className="mt-4">
         <ListItem
           left={<img src={icon44} width="28PX" height="28px" />}
-          content={data?.phone}
+          content={data?.data.phone || '02884325628'}
           className="tel-tag "
         />
         <ListItem
