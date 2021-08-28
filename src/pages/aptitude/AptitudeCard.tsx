@@ -49,8 +49,8 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
     <div className="flex flex-col p-1 m-1 border-2 border-gray-300">
       <div className="flex justify-between">
         <h3 className="font-bold flex-1">{goods_name}</h3>
-        <p className="text-red-500 font-bold">
-          限时: {goods_price ? Number(goods_price) / 10000 : ''}万
+        <p className="text-red-500 ml-1 font-bold">
+          限时: {goods_price ? Number(goods_price) / 10000 + '.00' : '0.00'}万
         </p>
       </div>
       <div className="flex justify-between mt-1">
