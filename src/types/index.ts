@@ -27,4 +27,5 @@ export type RequestUrl =
   | 'getMediaList'
   | 'getInfo'
   | 'getCompanyChoiceness'
-  | 'getCompanyQuality';
+  | 'getCompanyQuality'
+  | 'getAptitudeList';
