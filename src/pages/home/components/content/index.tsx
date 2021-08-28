@@ -84,68 +84,6 @@ const Content = () => {
     </div>
   );
 
-  // const SearchSection = () => {
-  //   return (
-  //     <div className="sz">
-  //       <div className="flex justify-center mt-2">
-  //         <h1 style={{ fontSize: 20 }}>全国范围免费找资质/公司</h1>
-  //       </div>
-  //       <div className="flex justify-center mt-1 ">
-  //         <div onClick={() => (type.current = 1)} className="flex items-center">
-  //           <input type="radio" id="huey" name="drone" value="huey" />
-  //           <label>找公司</label>
-  //         </div>
-
-  //         <div onClick={() => (type.current = 2)} className="flex items-center">
-  //           <input
-  //             type="radio"
-  //             id="huey"
-  //             name="drone"
-  //             value="huey"
-  //             className="ml-4"
-  //           />
-  //           <label>找带资质的公司</label>
-  //         </div>
-  //       </div>
-
-  //       <div className="searWrapper flex justify-center mt-2">
-  //         <Input
-  //           className="inputItem"
-  //           placeholder="填写您的电话号，我们立即联系您！"
-  //           onChange={(value: any) => {
-  //             phoneNumber.current = value.target.value;
-  //           }}
-  //         />
-  //         <div
-  //           className="search flex justify-center items-center"
-  //           onClick={async () => {
-  //             try {
-  //               await axios({
-  //                 method: 'post',
-  //                 url: 'https://api.7zaowang.com/index.php/api/telephoneMessage',
-  //                 data: {
-  //                   name: '',
-  //                   phone: phoneNumber.current,
-  //                   message_type: type.current,
-  //                 },
-  //               });
-  //               Toast.info('提交成功!');
-  //             } catch (e) {
-  //               Toast.info('请输入电话和查找公司类型！');
-  //             }
-  //           }}
-  //         >
-  //           <span>立即查找</span>
-  //         </div>
-  //       </div>
-
-  //       <div className="flex justify-center mt-2">
-  //         <span>60分钟 187****4766 发布了北京****金融有限公司</span>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   const CompanyDetailItems = () => {
     return (
       <div className="flex overflow-auto pt-2">

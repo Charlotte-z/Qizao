@@ -1,5 +1,4 @@
-import React from 'react';
-
+import React, { useEffect, useMemo } from 'react';
 import {
   Icon,
   NavBar,
@@ -8,6 +7,7 @@ import {
   Carousel,
   Card,
   WhiteSpace,
+  Toast,
 } from 'antd-mobile';
 import cover from '../../assets/images/公众转让.png';
 import weChat from '../../assets/images/weChat.png';
@@ -16,13 +16,64 @@ import icon35 from '../../assets/images/编组 35@2x.png';
 import icon36 from '../../assets/images/编组 36@2x.png';
 import icon37 from '../../assets/images/编组 37@2x.png';
 import icon39 from '../../assets/images/编组 39@2x.png';
-
 import './index.css';
 import ListItem from '../../components/List/LIstItem';
 import CompanyProfile from '../../components/CompanyProfile';
 import PhoneBar from '../../components/PhoneBar';
+import useAxios from '../../hooks/useLazyAxios';
+import { AdminUser, Limit } from '../../types';
+
+type Recommend = {
+  data: {
+    id: number;
+    goods_uuid: string;
+    goods_name: string;
+    goods_price: string;
+    admin_users_name: string;
+    admin_users_id: string;
+    seller_id: number;
+    seller_name: string;
+    seller_mobile: number;
+    status: number;
+    created_at: Date;
+    updated_at: Date;
+    payment_type: number;
+    media_recommend: number;
+    media_class: number;
+    fans_count: number;
+    like_count: number;
+    comment_count: number;
+    transpond_count: number;
+    media_class_name: string;
+    cover: string;
+    admin_users: AdminUser;
+  }[];
+};
 
 const WeChatMarketing: React.FC = () => {
+  const [queryRecommend, { data: recommend, error, loading }] = useAxios<
+    Limit,
+    Recommend
+  >('getRecommend', {
+    limit: 10,
+  });
+
+  useEffect(() => {
+    queryRecommend();
+    if (loading) Toast.loading('');
+  }, []);
+
+  const recommendList = useMemo(() => {
+    let index = 0;
+    let list = [];
+    if (recommend?.data) {
+      while (index < recommend?.data.length) {
+        list.push(recommend.data.slice(index, (index += 2)));
+      }
+    }
+    return list;
+  }, [recommend]);
+
   return (
     <div>
       <NavBar
@@ -41,103 +92,77 @@ const WeChatMarketing: React.FC = () => {
         <PhoneBar companyKey="weChatMarketing" />
         <WingBlank className="mt-2">
           <div className="recommend py-2 h-32">
-            <Carousel autoplay={false} infinite>
-              <Flex direction="column">
-                <Flex direction="column" align="center">
-                  <b className="font-16 text-white ">微信公众号推荐</b>
-                  <div className="text-gray-300 font-12 font-bold my-1">
-                    海量资源，精准投放，提高命中，助企业完成
-                  </div>
-                </Flex>
-
-                <Flex justify="around" className="w-full">
-                  <Card className="recommendCard">
-                    <WingBlank>
-                      <WhiteSpace />
-                      <Flex>
-                        <img src={weChat} width="18px" height="18px" />
-                        <b className="ml-1">微信公众号</b>
-                      </Flex>
-                      <WhiteSpace />
-                      <b>17年注册企业服务号，粉丝2.4W+视</b>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <b className="text-yellow-600">¥2.50万</b>
-                        <b className="tag">情感生活</b>
-                      </Flex>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <ListItem
-                          title="服务号"
-                          content="公众号类型"
-                          contentClassName="contentText"
-                        />
-                        <ListItem
-                          title="2.60W+"
-                          content="粉丝数"
-                          contentClassName="contentText"
-                        />
-                      </Flex>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <ListItem
-                          title="均衡"
-                          content="粉丝数"
-                          contentClassName="contentText"
-                        />
-                        <ListItem
-                          title="2.60W+"
-                          content="播放量"
-                          contentClassName="contentText"
-                        />
-                      </Flex>
-                    </WingBlank>
-                  </Card>
-                  <Card className="recommendCard">
-                    <WingBlank>
-                      <WhiteSpace />
-                      <Flex>
-                        <img src={weChat} width="18px" height="18px" />
-                        <b className="ml-1">微信公众号</b>
-                      </Flex>
-                      <WhiteSpace />
-                      <b>17年注册企业服务号，粉丝2.4W+视</b>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <b className="text-yellow-600">¥2.50万</b>
-                        <b className="tag">情感生活</b>
-                      </Flex>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <ListItem
-                          title="服务号"
-                          content="公众号类型"
-                          contentClassName="contentText"
-                        />
-                        <ListItem
-                          title="2.60W+"
-                          content="粉丝数"
-                          contentClassName="contentText"
-                        />
-                      </Flex>
-                      <WhiteSpace />
-                      <Flex justify="between">
-                        <ListItem
-                          title="均衡"
-                          content="粉丝数"
-                          contentClassName="contentText"
-                        />
-                        <ListItem
-                          title="2.60W+"
-                          content="播放量"
-                          contentClassName="contentText"
-                        />
-                      </Flex>
-                    </WingBlank>
-                  </Card>
-                </Flex>
+            <Flex direction="column">
+              <Flex direction="column" align="center">
+                <b className="font-16 text-white ">微信公众号推荐</b>
+                <div className="text-gray-300 font-12 font-bold my-1">
+                  海量资源，精准投放，提高命中，助企业完成
+                </div>
               </Flex>
-            </Carousel>
+              <Carousel autoplay infinite>
+                {recommendList?.map((d, index) => (
+                  <Flex justify="around" className="w-full" key={index}>
+                    {d.map((d) => (
+                      <Card
+                        className="recommendCard overflow-hidden"
+                        key={d.id}
+                      >
+                        <div className="bg-gray-100">
+                          <WingBlank className="mb-1">
+                            <WhiteSpace />
+                            <Flex>
+                              <img
+                                src={d.cover || weChat}
+                                width="18px"
+                                height="18px"
+                                alt=""
+                              />
+                              <b className="ml-1">微信公众号</b>
+                            </Flex>
+                            <WhiteSpace />
+                            <b>{d.goods_name}</b>
+                            <WhiteSpace />
+                            <Flex justify="between">
+                              <b className="text-yellow-600 w-4">
+                                ￥{d.goods_price}
+                              </b>
+                              <p className="tag">{d.media_class_name}</p>
+                            </Flex>
+                          </WingBlank>
+                        </div>
+
+                        <WingBlank className="mt-1">
+                          <Flex justify="between" className="mb-2">
+                            <ListItem
+                              title={d.media_recommend}
+                              content="公众号类型"
+                              contentClassName="contentText"
+                            />
+                            <ListItem
+                              title={d.fans_count}
+                              content="粉丝数"
+                              contentClassName="contentText"
+                            />
+                          </Flex>
+                          <Flex justify="between">
+                            <ListItem
+                              title={d.like_count}
+                              content="点赞数"
+                              contentClassName="contentText"
+                            />
+                            <ListItem
+                              title={d.transpond_count}
+                              content="播放量"
+                              contentClassName="contentText"
+                            />
+                          </Flex>
+                        </WingBlank>
+                      </Card>
+                    ))}
+                  </Flex>
+                ))}
+              </Carousel>
+            </Flex>
           </div>
 
           <div className="my-3">

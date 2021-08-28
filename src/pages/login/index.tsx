@@ -83,6 +83,9 @@ const Login: React.FC = () => {
             className="button"
             onClick={() => {
               if (!phone) return Toast.info('请输入手机号');
+              if (phone.length < 11 || !Number.isInteger(phone)) {
+                return Toast.info('请输入正确的手机号');
+              }
 
               Toast.loading('');
               axios
