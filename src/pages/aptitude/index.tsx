@@ -4,7 +4,8 @@ import aptitudeSrc from '../../assets/images/aptitude.png';
 import transferStepSrc from '../../assets/images/transferSteps.png';
 import PhoneBar from '../../components/PhoneBar';
 import useQueryAxios from '../../hooks/useQueryAxios';
-import AptitudeCard, { advisoryURL, AptitudeDetail } from './AptitudeCard';
+import { AptitudeDetail } from '../../types';
+import AptitudeCard, { advisoryURL } from './AptitudeCard';
 import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
 
@@ -25,6 +26,7 @@ const Aptitude: React.FC = () => {
   );
 
   const aptitudes = res?.data?.data || [];
+  console.log("res:",res)
 
   return (
     <div className="overflow-x-hidden">

@@ -1,14 +1,7 @@
 import { Button } from 'antd-mobile';
 import React from 'react';
+import { AptitudeDetail } from '../../types';
 
-export interface AptitudeDetail {
-  goods_uuid: string;
-  goods_name: string;
-  goods_price: number | string;
-  aptitude_registered_capital: number | string;
-  aptitude_clearance: string;
-  aptitude_establish_date: Date | string;
-}
 interface AptitudeProps {
   aptitude: AptitudeDetail;
 }
@@ -43,6 +36,7 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
     aptitude_registered_capital,
     aptitude_clearance,
     aptitude_establish_date,
+    admin_users,
   } = aptitude || {};
 
   return (
@@ -53,7 +47,7 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
           限时: {goods_price ? Number(goods_price) / 10000 + '.00' : '0.00'}万
         </p>
       </div>
-      <div className="flex justify-between mt-1">
+      <div className="flex justify-between items-center mt-1">
         <ul className="text-gray-500">
           <li className="flex justify-between">
             <p>注册资本:</p>
@@ -68,11 +62,17 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
             <p>{aptitude_establish_date}</p>
           </li>
         </ul>
-        <div className="mt-2">
-          <Button size="small" type="primary">
-            <a href={advisoryURL}>立即咨询</a>
-          </Button>
-        </div>
+          <a
+            target="_blank"
+            href={`http://wpa.qq.com/msgrd?v=3&uin=${admin_users?.txQQ}&site=qq&menu=yes`}
+          >
+            <img
+              style={{ border: 0,maxHeight:80}}
+              src={`http://wpa.qq.com/pa?p=2:${admin_users?.txQQ}:53`}
+              alt="点击这里给我发消息"
+              title="点击这里给我发消息"
+            />
+          </a>
       </div>
     </div>
   );

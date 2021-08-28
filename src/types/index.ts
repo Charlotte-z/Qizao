@@ -29,3 +29,14 @@ export type RequestUrl =
   | 'getCompanyChoiceness'
   | 'getCompanyQuality'
   | 'getAptitudeList';
+
+
+  export interface AptitudeDetail {
+    goods_uuid: string;
+    goods_name: string;
+    goods_price: number | string;
+    aptitude_registered_capital: number | string;
+    aptitude_clearance: string;
+    aptitude_establish_date: Date | string;
+    admin_users:AdminUser
+  }
