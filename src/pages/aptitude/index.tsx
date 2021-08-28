@@ -9,20 +9,23 @@ import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
 
 interface AptitudeList {
-  status:number;
-  message:string;
-  data:{
-    data: AptitudeDetail[]
-  }
+  status: number;
+  message: string;
+  data: {
+    data: AptitudeDetail[];
+  };
 }
 
 const Aptitude: React.FC = () => {
-  const {data:res} = useQueryAxios<{limit:number},AptitudeList>("getAptitudeList", {
-    limit: 10,
-  });
+  const { data: res } = useQueryAxios<{ limit: number }, AptitudeList>(
+    'getAptitudeList',
+    {
+      limit: 10,
+    },
+  );
 
   const aptitudes = res?.data?.data || [];
-  
+
   return (
     <div className="overflow-x-hidden">
       <NavBar
@@ -47,7 +50,7 @@ const Aptitude: React.FC = () => {
           </Flex.Item>
         </Flex>
         <WhiteSpace size="lg" />
-        {aptitudes?.map((item: AptitudeDetail, index:number) => (
+        {aptitudes?.map((item: AptitudeDetail, index: number) => (
           <AptitudeCard key={index} aptitude={item} />
         ))}
       </div>

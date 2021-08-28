@@ -1,17 +1,16 @@
 import { Button } from 'antd-mobile';
 import React from 'react';
 
-
-export interface AptitudeDetail  {
+export interface AptitudeDetail {
   goods_uuid: string;
   goods_name: string;
   goods_price: number | string;
   aptitude_registered_capital: number | string;
   aptitude_clearance: string;
   aptitude_establish_date: Date | string;
-};
+}
 interface AptitudeProps {
-  aptitude:AptitudeDetail
+  aptitude: AptitudeDetail;
 }
 
 export const advisoryURL =
@@ -30,7 +29,7 @@ export const getCompanyClearance = (code: string | number): string => {
     case '2':
     case 2:
       return '包安许';
-      
+
     default:
       return '';
   }
@@ -50,7 +49,9 @@ const AptitudeCard: React.FC<AptitudeProps> = (props) => {
     <div className="flex flex-col p-1 m-1 border-2 border-gray-300">
       <div className="flex justify-between">
         <h3 className="font-bold flex-1">{goods_name}</h3>
-        <p className="text-red-500 font-bold"> 限时: {goods_price?Number(goods_price)/10000:""}万 </p>
+        <p className="text-red-500 font-bold">
+          限时: {goods_price ? Number(goods_price) / 10000 : ''}万
+        </p>
       </div>
       <div className="flex justify-between mt-1">
         <ul className="text-gray-500">
