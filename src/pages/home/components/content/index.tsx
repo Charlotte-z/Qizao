@@ -17,6 +17,8 @@ import CompanyItem from '../../../../components/CompanyItem';
 
 import PhoneBar from '../../../../components/PhoneBar';
 import CompanyProfile from '../../../../components/CompanyProfile';
+import useQueryAxios from '../../../../hooks/useQueryAxios';
+import { Limit } from '../../../../types';
 
 const companyFakeIcon = () => {
   return (
@@ -86,9 +88,17 @@ const Content = () => {
   );
 
   const CompanyDetailItems = () => {
+    const data: any = useQueryAxios('getCompanyChoiceness', {
+      limit: 10,
+    });
+
+    if (!data.data?.data?.data?.length) return null;
+
+    const renderData = data.data.data.data;
+
     return (
       <div className="flex overflow-auto pt-2">
-        {companyDetail.map((detail, index) => {
+        {renderData.map((detail: any, index: number) => {
           return (
             <div
               key={index}
@@ -97,12 +107,16 @@ const Content = () => {
             >
               <div className="h-7 inline-flex">
                 {/* <img src={detail.Icon} alt="" /> */}
-                {detail.Icon()}
+                {/* {detail.Icon()} */}
+                <img src={detail.admin_users.avatar} />
                 <div className="flex flex-col justify-around ml-1">
                   <div className="flex w-16">
                     <div style={{ flex: 0.8 }}>
                       <span style={{ color: '#BE3E49', fontSize: 14 }}>
-                        ¥<span style={{ fontSize: 18 }}>{detail.price}</span>
+                        ¥
+                        <span style={{ fontSize: 18 }}>
+                          {detail.goods_price}
+                        </span>
                       </span>
                     </div>
                     <div style={{ flex: 0.2 }}>
@@ -116,22 +130,22 @@ const Content = () => {
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <span>已有{detail.fans}关注过该公司</span>
-                  </div>
+                  <div>{/* <span>已有{detail.fans}关注过该公司</span> */}</div>
                 </div>
               </div>
 
-              <div className="mt-1 mb-1">{detail.name}</div>
+              <div className="mt-1 mb-1">{detail.goods_name}</div>
               <div
                 className="mt-1 mb-1"
                 style={{ color: '#2A2A2A', fontSize: 14 }}
               >
-                {detail.description}
+                {/* {detail.company_describe} */}
               </div>
               <div className="flex">
                 <div className="flex flex-col justify-center items-center">
-                  <div style={{ fontSize: 14 }}>{detail.startDate}年</div>
+                  <div style={{ fontSize: 14 }}>
+                    {detail.company_establish_date}年
+                  </div>
                   <div style={{ color: '#9E9E9E' }}>成立日期</div>
                 </div>
                 <div
@@ -143,7 +157,9 @@ const Content = () => {
                   }}
                 />
                 <div className="flex flex-col justify-center items-center">
-                  <div style={{ fontSize: 14 }}>{detail.registrationMoney}</div>
+                  <div style={{ fontSize: 14 }}>
+                    {detail.company_registered_capital}
+                  </div>
                   <div style={{ color: '#9E9E9E' }}>注册资本</div>
                 </div>
                 <div
@@ -155,7 +171,7 @@ const Content = () => {
                   }}
                 />
                 <div className="flex flex-col justify-center items-center">
-                  <div style={{ fontSize: 14 }}>{detail.location}</div>
+                  <div style={{ fontSize: 14 }}>{detail.company_area}</div>
                   <div style={{ color: '#9E9E9E' }}>公司所在地</div>
                 </div>
               </div>
@@ -222,6 +238,12 @@ const Content = () => {
   ];
 
   const Hot = () => {
+    const data: any = useQueryAxios('getCompanyQuality');
+
+    if (!data?.data?.data?.data?.length) return null;
+
+    const renderData = data.data.data.data;
+
     return (
       <div className="hot">
         <CompanyItem icon={HotIcon} title="热门公司" />
@@ -241,7 +263,7 @@ const Content = () => {
               backgroundColor: '#fff',
             }}
           >
-            {Hots.map((h, index) => {
+            {renderData.map((h: any, index: number) => {
               return (
                 <div key={index} className="h-10  flex w-full p-1 mt-2">
                   <div
@@ -254,7 +276,7 @@ const Content = () => {
                   </div>
                   <div className="ml-1">
                     <div className="flex flex-row justify-evenly h-2">
-                      <div>{h.name}</div>
+                      <div>{h.goods_name}</div>
                       <div
                         className="border  w-5 ml-4 h-2 flex justify-center"
                         style={{
@@ -266,18 +288,21 @@ const Content = () => {
                         刚刚
                       </div>
                     </div>
-                    <div style={{ marginTop: '1px' }}>{h.description}</div>
+                    <div
+                      className="mt-2"
+                      dangerouslySetInnerHTML={{ __html: h.company_describe }}
+                    />
                     <div
                       className="flex"
                       style={{ color: '#9E9E9E', fontSize: 14 }}
                     >
                       <div className="mt-2">
-                        <div>{h.location}</div>
-                        <div>{h.date}</div>
+                        <div>{h.company_address}</div>
+                        <div>{h.company_establish_date}</div>
                       </div>
                       <div className="mt-2 ml-1">
-                        <div>{h.money}</div>
-                        <div>{h.size}</div>
+                        {/* <div>{h.company_registered_capital}</div> */}
+                        {/* <div>{h.size}</div> */}
                       </div>
                       <div
                         className="flex flex-col justify-end ml-3"
@@ -285,7 +310,7 @@ const Content = () => {
                       >
                         <div>
                           <span>¥</span>
-                          <span style={{ fontSize: 22 }}>7000</span>
+                          <span style={{ fontSize: 22 }}>{h.goods_price}</span>
                         </div>
                         <div>已有45人围观过</div>
                       </div>

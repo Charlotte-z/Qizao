@@ -3,42 +3,31 @@ import React from 'react';
 import aptitudeSrc from '../../assets/images/aptitude.png';
 import transferStepSrc from '../../assets/images/transferSteps.png';
 import PhoneBar from '../../components/PhoneBar';
+import useQueryAxios from '../../hooks/useQueryAxios';
+import { AptitudeDetail } from '../../types';
 import AptitudeCard, { advisoryURL } from './AptitudeCard';
 import { serverDesSteps, serverTitleSteps, transferSteps } from './config';
 import DescriptionCell from './DescriptionCell';
 
-const MockAptitudes = [
-  {
-    projectName: '施工劳务-施工劳务不分等级 【整转】',
-    projectMony: '6',
-    registererAsset: '1000万',
-    method: '现成安许',
-    expireDate: '2025-11',
-  },
-  {
-    projectName: '房地产开发资质-正贰级【整转】',
-    projectMony: '37',
-    registererAsset: '1000万',
-    method: '/',
-    expireDate: '2024-8',
-  },
-  {
-    projectName: '施工总承包-房建工程-叁级【整转】',
-    projectMony: ' 16',
-    registererAsset: ' 1000万',
-    method: '现成安许',
-    expireDate: '2026-03',
-  },
-  {
-    projectName: '施工总承包-市政工程-叁级【整转】',
-    projectMony: ' 16',
-    registererAsset: ' 1000万',
-    method: '现成安许',
-    expireDate: '2026-03',
-  },
-];
+interface AptitudeList {
+  status: number;
+  message: string;
+  data: {
+    data: AptitudeDetail[];
+  };
+}
 
 const Aptitude: React.FC = () => {
+  const { data: res } = useQueryAxios<{ limit: number }, AptitudeList>(
+    'getAptitudeList',
+    {
+      limit: 10,
+    },
+  );
+
+  const aptitudes = res?.data?.data || [];
+  console.log("res:",res)
+
   return (
     <div className="overflow-x-hidden">
       <NavBar
@@ -63,7 +52,7 @@ const Aptitude: React.FC = () => {
           </Flex.Item>
         </Flex>
         <WhiteSpace size="lg" />
-        {MockAptitudes.map((item, index) => (
+        {aptitudes?.map((item: AptitudeDetail, index: number) => (
           <AptitudeCard key={index} aptitude={item} />
         ))}
       </div>
