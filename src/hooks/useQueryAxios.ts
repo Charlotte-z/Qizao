@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { RequestUrl } from '../types';
+import { BaseUrl } from '../config';
 
 type Method = 'post' | 'get';
-axios.defaults.baseURL = 'https://api.7zaowang.com/index.php/api/';
+axios.defaults.baseURL = BaseUrl;
 
 const useQueryAxios = <T, D>(url: RequestUrl, body?: T, method?: Method) => {
   const [data, setData] = useState<D>();

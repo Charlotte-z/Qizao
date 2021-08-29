@@ -1,5 +1,5 @@
 import { Flex } from 'antd-mobile';
-import React, { useEffect } from 'react';
+import React from 'react';
 import ListItem from '../List/LIstItem';
 import icon40 from '../../assets/images/保障@2x.png';
 import icon41 from '../../assets/images/免费 (1)@2x.png';
@@ -71,11 +71,14 @@ const CompanyProfile: React.FC<Props> = ({ className }) => {
           className="tel-tag "
         />
       </Flex>
-      <div className="text-center my-4">
+      <a
+        className="block text-center my-4"
+        href="https://beian.miit.gov.cn/#/Integrated/index"
+      >
         <div className="desc">Copyright©2020-2021 企枣网版权所有</div>
         <div className="desc py-2">蜀ICP备2020036560号</div>
         <div className="desc">川公安备51010602001292号</div>
-      </div>
+      </a>
     </div>
   );
 };

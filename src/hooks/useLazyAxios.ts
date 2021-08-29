@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { RequestUrl } from '../types';
+import { BaseUrl } from '../config';
 
 type Method = 'post' | 'get';
 type LazyQueyr<D> = [
   Function,
   { data: D | null | undefined; error: string; loading: boolean },
 ];
-axios.defaults.baseURL = 'https://api.7zaowang.com/index.php/api/';
+axios.defaults.baseURL = BaseUrl;
 
 const useLazyAxios = <T, D>(
   url: RequestUrl,

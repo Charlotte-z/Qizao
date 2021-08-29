@@ -22,6 +22,7 @@ import CompanyProfile from '../../components/CompanyProfile';
 import PhoneBar from '../../components/PhoneBar';
 import useAxios from '../../hooks/useLazyAxios';
 import { AdminUser, Limit } from '../../types';
+import { ImgUrl } from '../../config';
 
 type Recommend = {
   data: {
@@ -113,7 +114,7 @@ const WeChatMarketing: React.FC = () => {
                             <WhiteSpace />
                             <Flex>
                               <img
-                                src={d.cover || weChat}
+                                src={`${ImgUrl}${d.cover}` || weChat}
                                 width="18px"
                                 height="18px"
                                 alt=""
